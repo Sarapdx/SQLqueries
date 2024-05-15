@@ -1,0 +1,14 @@
+SELECT
+    s.student_is,
+    s.first_name,
+    s.last_name,
+    d.department_name,
+    CASE
+        WHEN d.location = 'New York' THEN 'East Coast'
+        WHEN d.location = 'Los Angeles' THEN 'West Coast'
+        ELSE 'Other'
+    END AS location_category
+FROM
+    student s
+JOIN
+    departments d ON s.department_id = d.department_id;
